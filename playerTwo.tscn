@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b13de68uu3q35" path="res://character_body_2d.gd" id="1_7ivrd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_45jbl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ivrd"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_7ivrd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_45jbl")
+position = Vector2(208, 60)
+scale = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_7ivrd")

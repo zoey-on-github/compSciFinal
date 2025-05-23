@@ -1,7 +1,7 @@
 extends CharacterBody2D
-const JUMP_VELOCITY = -700.0
+const JUMP_VELOCITY = -900.0
 
-const SPEED = 300.0
+const SPEED = 500.0
 const inputs = {}
 const tile_size = 64
 func _physics_process(delta):
