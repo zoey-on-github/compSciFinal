@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://drkl4gnuwtcfa"]
+[gd_scene load_steps=3 format=3 uid="uid://bdq7npsw0efc3"]
 
-[ext_resource type="Script" uid="uid://b13de68uu3q35" path="res://character_body_2d.gd" id="1_h3rsb"]
+[ext_resource type="Script" uid="uid://b13de68uu3q35" path="res://character_body_2d.gd" id="1_7ivrd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_45jbl"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_h3rsb")
+script = ExtResource("1_7ivrd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_45jbl")

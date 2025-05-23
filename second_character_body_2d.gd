@@ -1,7 +1,7 @@
 extends CharacterBody2D
-const JUMP_VELOCITY = -700.0
+const JUMP_VELOCITY = -900.0
 
-const SPEED = 300.0
+const SPEED = 1500.0
 const inputs = {}
 const tile_size = 64
 func _physics_process(delta):
@@ -13,11 +13,13 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	#var direction = Input.get_axis("move_left", "move_right")
+	if Input.is_action_pressed("move_left"):
+		velocity.x = SPEED
+	if Input.is_action_pressed("move_right"):
+		velocity.x = -SPEED
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, SPEED)
 	if Input.is_action_just_pressed("ground_pound") and !is_on_floor():
 		velocity.y = JUMP_VELOCITY * -1
 	move_and_slide()
