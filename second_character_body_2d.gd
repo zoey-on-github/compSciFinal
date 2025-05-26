@@ -19,5 +19,5 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if Input.is_action_just_pressed("ground_pound2") and !is_on_floor():
-		velocity.y = JUMP_VELOCITY * -1
+		velocity.y = -JUMP_VELOCITY * 5
 	move_and_slide()
