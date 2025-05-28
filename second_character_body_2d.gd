@@ -15,9 +15,15 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left2", "move_right2")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * SPEED 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if Input.is_action_just_pressed("ground_pound2") and !is_on_floor():
 		velocity.y = -JUMP_VELOCITY * 5
 	move_and_slide()
+	var colliders = $CollisionShape2D/RayCast2D.get_collider()
+	var colliders2 = str(colliders)
+	if colliders2.contains("firstplayer"):
+		var player = get_node("../firstplayer")
+		player.queue_free()
+		print_debug(colliders2)

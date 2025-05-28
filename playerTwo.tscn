@@ -10,3 +10,6 @@ script = ExtResource("1_7ivrd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_7ivrd")
+
+[node name="RayCast2D" type="RayCast2D" parent="CollisionShape2D"]
+target_position = Vector2(0, 16.58)

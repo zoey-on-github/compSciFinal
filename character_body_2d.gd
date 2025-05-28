@@ -21,3 +21,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ground_pound") and !is_on_floor():
 		velocity.y = -JUMP_VELOCITY * 5
 	move_and_slide()
+	var colliders = $CollisionShape2D/RayCast2D.get_collider()
+	var colliders2 = str(colliders)
+	if colliders2.contains("secondplayer"):
+		print_debug(colliders2)
