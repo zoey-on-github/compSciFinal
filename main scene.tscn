@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://ddme6gofi6tea" path="res://main_scene.gd" id="1_c0ne2"]
 [ext_resource type="Texture2D" uid="uid://c4sa6mjyrn67t" path="res://tilesheet_complete_2X.png" id="1_i7y2r"]
 [ext_resource type="PackedScene" uid="uid://bdq7npsw0efc3" path="res://playerTwo.tscn" id="4_0afw7"]
+[ext_resource type="Texture2D" uid="uid://dhai7v2430vwd" path="res://player1.png" id="4_sgb2t"]
 [ext_resource type="Script" uid="uid://c5f4p8dm8gal5" path="res://second_character_body_2d.gd" id="5_ux2rm"]
+[ext_resource type="Script" uid="uid://bfc4whfe7jona" path="res://score.gd" id="7_aqyhw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ddp3"]
 texture = ExtResource("1_i7y2r")
@@ -1024,14 +1026,6 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3ddp3")
 
-[sub_resource type="Gradient" id="Gradient_c0ne2"]
-offsets = PackedFloat32Array(0.987013, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0afw7"]
-gradient = SubResource("Gradient_c0ne2")
-fill_from = Vector2(0.977064, 0.0183486)
-fill_to = Vector2(1, 0.00458716)
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_c0ne2")
 
@@ -1044,10 +1038,9 @@ tile_set = SubResource("TileSet_0dj10")
 position = Vector2(441, 158)
 
 [node name="Sprite2D" type="Sprite2D" parent="firstplayer"]
-visible = false
-position = Vector2(3.27685, 5.77778)
+position = Vector2(0.999995, 0.999994)
 scale = Vector2(1.1476, 1.28819)
-texture = SubResource("GradientTexture2D_0afw7")
+texture = ExtResource("4_sgb2t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1283, 499)
@@ -1056,3 +1049,16 @@ zoom = Vector2(0.5, 0.5)
 [node name="secondplayer" parent="." instance=ExtResource("4_0afw7")]
 position = Vector2(2133, 135)
 script = ExtResource("5_ux2rm")
+
+[node name="score" type="RichTextLabel" parent="."]
+offset_left = 935.0
+offset_top = -19.0
+offset_right = 1462.0
+offset_bottom = 68.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+horizontal_alignment = 1
+script = ExtResource("7_aqyhw")
+
+[connection signal="playertwokilled" from="firstplayer" to="score" method="_on_firstplayer_playertwokilled"]

@@ -1,9 +1,7 @@
 extends CharacterBody2D
 const JUMP_VELOCITY = -900.0
-
+signal playeronekilled
 const SPEED = 500.0
-const inputs = {}
-const tile_size = 64
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -25,5 +23,6 @@ func _physics_process(delta):
 	var colliders2 = str(colliders)
 	if colliders2.contains("firstplayer"):
 		var player = get_node("../firstplayer")
-		player.queue_free()
+		player.position = Vector2(441,158)
 		print_debug(colliders2)
+		playeronekilled.emit()
