@@ -23,6 +23,9 @@ func _physics_process(delta):
 	var colliders2 = str(colliders)
 	if colliders2.contains("firstplayer"):
 		var player = get_node("../firstplayer")
-		player.position = Vector2(441,158)
-		print_debug(colliders2)
-		playeronekilled.emit()
+		if !player.position == Vector2(441,158):
+			player.position = Vector2(441,158)
+			print_debug(colliders2)
+			playeronekilled.emit()
+		else:
+			pass
